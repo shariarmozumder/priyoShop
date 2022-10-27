@@ -1,0 +1,217 @@
+Model
+==================
+export class ProductInfo {
+  ProductId: string;
+  sku: string;
+  productName: string;
+  productRate: number;
+  isActive: boolean;
+  public constructor(init?: Partial<ProductInfo>) {
+    Object.assign(this, init);
+  }
+}
+export class Product {
+  isNew:string;
+  systemId:number;
+  userId:number;
+  sku: string;
+  productName: string;
+  rate: number;
+  isActive: boolean;
+  manufacturerName:string;
+  public constructor(init?: Partial<Product>) {
+    Object.assign(this, init);
+  }
+}
+======================
+Service
+=====
+saveProductEntry(fromdata) {
+    console.log(fromdata);
+    return this._http.post<any>(
+      `${environment.baseUrl}Product/SaveProductEntry`,
+      fromdata,
+      Options()
+    );
+  }
+
+  GetProductInfoForEditByProductId(productId: number) {
+    var queryString = serializeQuery(
+      {       
+        applicationId: ApplicationId(),
+        productId: productId,              
+      },
+      ""
+    );
+    return this._http.get<any>(
+      `${environment.baseUrl}Product/GetProductInfoForEditByProductId?${queryString}`,
+      Options()
+    );
+  }
+==========================================
+HTML
+=========
+<div class="animated fadeIn">
+    <div class="row">
+        <div class="col-lg-12">
+            <div class="card" style="margin-bottom: 10px;">
+                <div class="card-header">
+                    <i class="fa fa-align-justify"></i> Product Entry
+                </div>
+                <div class="card-body">
+                    <form  class="form-horizontal">
+                        <div class="row">
+                            <div class="col">
+                                <div class="form-group">
+                                    <label for="product">Is New <code>*</code></label>
+                                    <div class="row">
+                                        <div class="col-3">
+                                            <button type="button" (click)="onClickNew()"
+                                                [disabled]="!product.systemId === 0"
+                                                class="btn btn-sm btn-primary">New</button>
+                                        </div>
+                                        <div class="col-6 px-0">
+                                            <input type="text" id="isNew" name="isNew" [(ngModel)]="product.isNew"
+                                                class="form-control form-control-sm"
+                                                [readonly]="product.isNew === 'New Entry'" autocomplete="isNew" required>
+                                        </div>
+                                        <div class="col-3">
+                                            <button type="button" [disabled]="product.isNew === 'New Entry'" 
+                                            (click)="onClickSearchProduct(product.isNew)"                                  
+                                                class="btn btn-sm btn-primary"><i class="fa fa-search"></i></button>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label for="sku">SKU</label>
+                                    <div class="row">
+                                        <div class="col-3">
+                                            <button type="button" class="btn btn-sm btn-primary">
+                                               <i class="icon-eye icons"></i></button>
+                                        </div>
+                                        <div class="col-9 pl-0">
+                                            <input type="text" id="sku" name="sku"
+                                                [(ngModel)]="product.sku" class="form-control form-control-sm"
+                                                [readonly]="true" placeholder="Auto generate Sku Code.."
+                                                autocomplete="sku">
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="col">                            
+                                <div class="form-group">
+                                    <label for="productName">Product Name <code>*</code></label>
+                                    <input type="text" id="productName" name="productName" [(ngModel)]="product.productName"                                       
+                                        class="form-control form-control-sm"  required>
+                                </div>
+                                
+                                <div class="form-group">
+                                    <label for="manufacturerName">Manufacturer</label>
+                                    <input type="text" id="manufacturerName" name="manufacturerName" [(ngModel)]="product.manufacturerName"                                       
+                                        class="form-control form-control-sm" [readonly]="true"  required>
+                                </div> 
+                            </div>
+
+                            <div class="col">
+                                <div class="form-group">
+                                    <label for="rate">Product Rate <code>*</code></label>
+                                    <input type="number" maxlength="5" minlength="2" id="rate" name="rate" [(ngModel)]="product.rate"
+                                         class="form-control form-control-sm" required>
+                                </div> 
+                            </div>
+
+                            <div class="col">
+                                <label class="form-check-label" for="isActive"></label>                             
+                                <div class="form-group form-check">
+                                    <input type="checkbox" class="form-check-input" id="isActive" [(ngModel)]="product.isActive" >
+                                    <label class="form-check-label" for="isActive">IsActive</label>
+                                  </div>
+                            </div>
+
+                        </div>
+
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+ <div class="animated fadeIn" id="btnButton">
+    <div class="d-flex flex-row-reverse">
+        <button type="reset" (click)="onReset()" class="btn btn-sm btn-danger"><i class="fa fa-ban"></i> Reset</button>
+        <button style="margin: 0px 15px;" type="button" class="btn btn-sm btn-success"
+            (click)="onSubmit(form)"><i class="fa fa-dot-circle-o"></i> Submit</button>
+
+    </div>
+</div> 
+==============
+TS File
+=======
+@Component({
+  templateUrl: "productentry.component.html",
+})
+export class ProductEntryComponent implements OnInit {  
+  product: Product = new Product({
+    isNew: null,
+    systemId:0,
+    userId: Number(localStorage.getItem("userId")),
+    sku:null,
+    productName:null,
+    rate: null,
+    isActive: true,
+    manufacturerName:'',
+  });
+  constructor(private _ProductService: ProductService, 
+    private _toastr: ToastrService) {}
+
+  ngOnInit() { 
+      console.log(this.product)
+  }
+
+   onClickNew() {
+    this.product.isNew = "New Entry";
+    this.product.systemId = 0;
+  }
+
+  onClickSearchProduct(id: string) {
+    console.log(id)
+    this._ProductService
+      .GetProductInfoForEditByProductId(Number(id))
+      .subscribe((response) => {
+        if (response.status) {
+          this.product = response.content.dataList;
+          this.product.systemId = this.product.systemId;        
+        } else {
+          this.onReset();
+          this._toastr.error("Product no invalid", "Error");
+        }
+      });
+  }
+
+  onSubmit() {
+    this._ProductService.saveProductEntry(this.product).subscribe(
+      (response) => {
+        if (response.status) {
+          this.onReset();
+          this._toastr.success(response.content,ToastrTitle());
+        } else {
+        }
+      },
+      (error) => {
+        this._toastr.error(error.error.content,ToastrTitle());
+      }
+    );
+  }
+  
+  onReset() {
+    this.product.isNew=null;
+    this.product.sku = null;
+    this.product.productName = null;
+    this.product.rate = null;
+    this.product.isActive = null; 
+    this.product.manufacturerName=null; 
+  }
+}
+
+
