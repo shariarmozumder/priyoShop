@@ -3,54 +3,14 @@ import React from 'react';
 const TermsOfService = () => {
     return (
         <div>
-             {/* - ======= Top Bar ======= --> */}
-    <section id="topbar" class="fixed-top d-flex align-items-center">
-        <div class="container d-flex flex-row-reverse justify-content-center justify-content-md-between">
-            <div class="contact-info d-flex align-items-center">
-                <i class="bi bi-envelope d-flex align-items-center">
-                    <a href="mailto:priyoshopretail@gmail.com">priyoshopretail@gmail.com </a></i> &nbsp; &nbsp;
-                <i class="fa fa-phone"><span>09636102030</span></i> &nbsp; &nbsp;
-
-                <button id="switch-lang" type="button" class="btn btn-danger" onclick="switchLang()"><i
-                        class="fa fa-globe"></i>
-                    <span lang="bn">Eng</span> <span lang="dz">বাং</span> </button>
-
-            </div>
-        </div>
-    </section>
-
 
     {/* - ======= Header ======= --> */}
-    <header id="header" class="fixed-top d-flex align-items-center">
-        <div class="container d-flex align-items-center justify-content-between">
-            <h1 class="logo"> <a href="index.html"> <img src="img/logo/retailLogoHeader.png" alt="Retail Logo"
-                        class="img-fluid"/></a>
-            </h1>
-            <nav id="navbar" class="navbar">
-                <ul>
-                    <li lang="dz"><a class="nav-link scrollto" href="#contact">Sale with Us</a></li>
-                    <li lang="bn"><a class="nav-link scrollto" href="#contact">ম্যানুফ্যাকচারার হিসাবে নিবন্ধন করুন</a>
-                    </li>
-                    <li lang="dz"><a class="nav-link"
-                            href="https://play.google.com/store/apps/details?id=com.priyoshop.zero" target="_blank">
-                            Join as a Retailer</a>
-                    </li>
-                    <li lang="bn"><a class="nav-link"
-                            href="https://play.google.com/store/apps/details?id=com.priyoshop.zero" target="_blank">
-                            রিটেইলার হিসাবে জয়েন করুন
-                        </a>
-                    </li>
-                </ul>
-                <i class="bi bi-list mobile-nav-toggle"></i>
-            </nav>
-             {/* .navbar --> */}
-        </div>
-    </header>
+
     {/* End Header --> */}
 
     <main id="main">
         <section>
-            <div class="container" id="detailPage">
+            <div className="container" id="detailPage">
                 <p>The domain name <a href="www.priyoshopretail.com">www.priyoshopretail.com</a> is owned by PriyoShop
                     Pte Ltd.,
                     whose registered office is at House: 31/A, Dhanmondi-8, Dhaka.
@@ -117,92 +77,6 @@ const TermsOfService = () => {
     </main>
 
     {/* - ======= Footer ======= --> */}
-    <footer id="footer">
-        <div class="footer-top">
-            <div class="container">
-                <div class="row">
-                    <div class="col-lg-3 col-md-3 col-sm-6 footer-links">
-                        <div class="container footer-img">
-                            <div class="d-flex align-items-center justify-content-center pb-4">
-                                <img src="img/footer/retailLogo.png" alt="Retail Logo" class="img-fluid"/>
-                            </div>
-                            <div class="d-flex align-items-center justify-content-center">
-                                <div class="col-5">
-                                    <img src="img/footer/scanner.png" alt="" class="img-fluid"/>
-                                </div>
-                                <div class="col-7">
-                                    <a href="https://play.google.com/store/apps/details?id=com.priyoshop.zero"
-                                        target="_blank">
-                                        <img src="img/footer/Play-Store-Logo.png" alt="" class="img-fluid"/></a>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="col-lg-3 col-md-3 col-sm-6 footer-links">
-                        <h3 lang="dz">Useful Links</h3>
-                        <h3 lang="bn">প্রয়োজনীয় লিংকগুলো</h3>
-                        <ul>
-                            <li lang="dz"><i class="bx bx-chevron-right"></i> <a href="terms-of-service.html">Terms Of
-                                    Service</a></li>
-                            <li lang="bn"><i class="bx bx-chevron-right"></i> <a href="terms-of-service.html">ব্যবহারের
-                                    শর্তাবলী</a></li>
-                            <li lang="dz"><i class="bx bx-chevron-right"></i> <a href="privacy-policy.html">Privacy
-                                    Policy</a></li>
-                            <li lang="bn"><i class="bx bx-chevron-right"></i> <a href="privacy-policy.html">প্রাইভেসী
-                                    পলিসি</a></li>
-                        </ul>
-                    </div>
-
-                    <div class="col-lg-3 col-md-3 col-sm-6 footer-contact">
-                        <h3 lang="dz">Contact Us</h3>
-                        <h3 lang="bn">যোগাযোগ</h3>
-                        <p lang="dz">
-                            House: 31/A, Dhanmondi-8, <br/>
-                            Dhaka-1205 <br/><br/>
-                            <strong>Phone:</strong> 09636102030<br/>
-                            <strong>Email:</strong> priyoshopretail@gmail.com<br/>
-                        </p>
-                        <p lang="bn">
-                            বাড়ি ৩১/এ, ধানমন্ডি ৮, <br/>
-                            ঢাকা-১২০৫ <br/><br/>
-                            <strong>হটলাইন:<i class="bx bxl-gmail"></i></strong> 09636102030<br/>
-                            <strong>ইমেইল:</strong> priyoshopretail@gmail.com<br/>
-                        </p>
-                    </div>
-
-                    <div class="col-lg-3 col-md-3 col-sm-6 footer-links">
-                        <h3 lang="dz">Our Social Networks</h3>
-                        <h3 lang="bn">সোশাল মিডিয়ায় আমরা</h3>
-                        <h5 lang="dz">Stay connected with us</h5>
-                        <h5 lang="bn">আমাদের সাথে যুক্ত থাকুন</h5>
-                        <div class="social-links mt-3">
-                            <a target="_blank" href="https://twitter.com/priyoshopcom" class="twitter"><i
-                                    class="bx bxl-twitter"></i></a>
-                            <a target="_blank" href="https://www.facebook.com/PriyoShopcom" class="facebook"><i
-                                    class="bx bxl-facebook"></i></a>
-                            <a target="_blank" href="https://www.instagram.com/priyoshop/" class="instagram"><i
-                                    class="bx bxl-instagram"></i></a>
-                            <a target="_blank" href="https://www.youtube.com/channel/UCa9OQR31OFrEmgOzPSPguuA"
-                                class="youtube"><i class="bx bxl-youtube"></i></a>
-                            <a href="https://www.linkedin.com/company/priyoshopcom" target="_blank" class="linkedin"><i
-                                    class="bx bxl-linkedin"></i></a>
-                        </div>
-                    </div>
-
-                </div>
-            </div>
-        </div>
-
-        <div class="footer-bottom pt-1 d-flex align-items-center justify-content-center">
-            <span lang="dz">
-                &copy; All Rights Reserved by 2022 PriyoShop.com Limited
-            </span>
-            <span lang="bn">
-                &copy; ২০২২ প্রিয়শপ ডটকম লিমিটেড দ্বারা সমস্ত অধিকার সংরক্ষিত
-            </span>
-        </div>
-    </footer>
     
     {/* - End Footer --> */}
     <br/>
