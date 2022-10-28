@@ -13,17 +13,19 @@ import TermsOfService from './components/TermsOfService/TermsOfService';
 function App() {
   return (
     <div>
-        <Header/>
+      
       <BrowserRouter>
+      <Header/>
       <Routes>
         <Route path='/' element={<Main/>}/>
         <Route path='/carrer' element={<Carrer/>}/>
         <Route path='/privacy' element={<PrivacyPolicy/>}/>
         <Route path='/term' element={<TermsOfService/>}/>
-      </Routes>      
+      </Routes>   
+      <Footer/>   
             
             </BrowserRouter>
-            <Footer/>
+            
 
     </div>
   );

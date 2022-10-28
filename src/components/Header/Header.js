@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 
 
 const Header = () => {
@@ -21,8 +22,8 @@ const Header = () => {
     {/* ======= Header =======  */}
     <header id="header" className="fixed-top d-flex align-items-center">
         <div className="container d-flex align-items-center justify-content-between">
-            <h1 className="logo"> <a href="/"> <img src="img/logo/retailLogoHeader.png" alt="Retail Logo"
-                        className="img-fluid"/></a>
+            <h1 className="logo"> <Link to="/"> <img src="img/logo/retailLogoHeader.png" alt="Retail Logo"
+                        className="img-fluid"/></Link>
             </h1>
 
             <nav id="navbar" className="navbar">

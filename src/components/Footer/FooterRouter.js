@@ -7,33 +7,33 @@ const FooterRouter = () => {
              <div className="col-lg-2 col-md-2 col-sm-6 footer-links">
                         <h3 lang="dz">Useful Links</h3>
                         <h3 lang="bn">প্রয়োজনীয় লিংকগুলো</h3>
+                        <nav>
                         <ul>
                             <li lang="dz"><i className="bx bx-chevron-right"></i>
-                             <Link><a href="/terms">Terms Of
-                                    Service</a></Link>
+                             <Link to="/term">Terms Of
+                                    Service</Link>
                                     
                                     </li>
                             <li lang="bn"><i className="bx bx-chevron-right"></i> 
-                           <Link> <a href="">ব্যবহারের
-                                    শর্তাবলী</a></Link>
+                            <Link to="term">ব্যবহারের শর্তাবলী</Link>
                                     </li>
 
                             <li lang="dz"><i className="bx bx-chevron-right"></i> 
-                             <Link><a href="">Privacy
-                                    Policy</a></Link>
+                            <Link to="privacy">Privacy Policy</Link>
                                     </li>
                             <li lang="bn"><i className="bx bx-chevron-right"></i> 
-                            <Link><a href="">প্রাইভেসী
-                                    পলিসি</a></Link>
+                            <Link to="privacy">প্রাইভেসী পলিসি</Link>
+                    
                                     </li>
 
                             <li lang="dz"><i className="bx bx-chevron-right"></i> 
-                            <Link><a href="">Career </a></Link>
+                            <Link to="/carrer">Career</Link>
                             </li>
                             <li lang="bn"><i className="bx bx-chevron-right"></i> 
-                            <Link><a href="">ক্যারিয়ার</a></Link>
+                            <Link to="/carrer">ক্যারিয়ার</Link>
                             </li>
                         </ul>
+                        </nav>
                     </div>
 
             

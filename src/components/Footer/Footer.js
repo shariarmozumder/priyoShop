@@ -1,10 +1,10 @@
-import React from 'react';
+import React from 'react'
+import { Link } from 'react-router-dom'
 
 const Footer = () => {
-    return (
-        <div>
-                    {/* -- ======= Footer ======= --> */}
-    <footer id="footer">
+  return (
+    <div>
+          <footer id="footer">
         <div className="footer-top">
             <div className="container">
                 <div className="row">
@@ -31,24 +31,29 @@ const Footer = () => {
                         <h3 lang="bn">প্রয়োজনীয় লিংকগুলো</h3>
                         <ul>
                             <li lang="dz"><i className="bx bx-chevron-right"></i>
-                             <a href="/term">Terms Of
-                                    Service</a>
+                            <Link to="/term"> <a to="/term">Terms Of
+                                    Service</a></Link>
                                     </li>
                             <li lang="bn"><i className="bx bx-chevron-right"></i> 
-                            <a href="terms-of-service.html">ব্যবহারের
-                                    শর্তাবলী</a></li>
+                            <Link to="/term"><a to="">ব্যবহারের
+                                    শর্তাবলী</a></Link>
+                                    </li>
 
                             <li lang="dz"><i className="bx bx-chevron-right"></i> 
-                            <a href="privacy-policy.html">Privacy
-                                    Policy</a></li>
+                            <Link to="/privacy"><a to="">Privacy
+                                    Policy</a></Link>
+                                    </li>
                             <li lang="bn"><i className="bx bx-chevron-right"></i> 
-                            <a href="privacy-policy.html">প্রাইভেসী
-                                    পলিসি</a></li>
+                            <Link to="/privacy" ><a to="">প্রাইভেসী
+                                    পলিসি</a></Link>
+                                    </li>
 
                             <li lang="dz"><i className="bx bx-chevron-right"></i> 
-                            <a href="career.html">Career </a></li>
+                            <Link to="/carrer">Career </Link>
+                            </li>
                             <li lang="bn"><i className="bx bx-chevron-right"></i> 
-                            <a href="career.html">ক্যারিয়ার</a></li>
+                            <Link to="/carrer">ক্যারিয়ার</Link>
+                            </li>
                         </ul>
                     </div>
 
@@ -111,9 +116,8 @@ const Footer = () => {
         </div>
     </footer>
      {/* End Footer  */}
-            
-        </div>
-    );
-};
+    </div>
+  )
+}
 
-export default Footer;
+export default Footer

@@ -1,5 +1,4 @@
 import React from 'react';
-import Footer from '../Footer/Footer';
 import Header from '../Header/Header';
 
 const privacyPolicy = () => {
@@ -133,7 +132,6 @@ const privacyPolicy = () => {
     </main>
 
     {/* -- ======= Footer ======= --> */}
-    <Footer/>
   
   {/* -- End Footer -->  */}
     <br/>
